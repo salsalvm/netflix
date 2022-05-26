@@ -19,8 +19,11 @@ class Result {
   bool? video;
   @JsonKey(name: 'media_type')
   String? mediaType;
+  @JsonKey(name: 'dates')
+  String? date;
+  
 
-  Result({
+  Result({this.date,
     this.releaseDate,
     this.id,
     this.backdropPath,
@@ -28,15 +31,6 @@ class Result {
     this.title,
     this.video,
     this.mediaType,
-  });
-  Result.get({
-    required this.releaseDate,
-    required this.id,
-    required this.backdropPath,
-    required this.posterPath,
-    required this.title,
-    required this.video,
-    required this.mediaType,
   });
   factory Result.fromJson(Map<String, dynamic> json) {
     return _$ResultFromJson(json);

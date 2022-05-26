@@ -1,48 +1,59 @@
 import 'package:flutter/material.dart';
 
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/custom_button_widget.dart';
+import 'package:netflix/server/database/data.dart';
+import 'package:netflix/server/url/constant.dart';
 
 class BackgroundCard extends StatelessWidget {
   const BackgroundCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 600,
-          decoration:const BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    kHotNewImage,
-                  ))),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomButtonWidget(icon: Icons.add, title: 'My List'),
-                _PlayButton(),
-                CustomButtonWidget(icon: Icons.info, title: 'Info')
-              ],
-            ),
-          ),
-        )
-      ],
+    return FutureBuilder(
+      future: DataBase().getLatestMovies(),
+      builder: ((BuildContext context, AsyncSnapshot datas) =>
+          datas.data == null
+              ? const Center(child: CircularProgressIndicator())
+              : Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 600,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            '$imageAppentUrl${datas.data[0].posterPath}',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const CustomButtonWidget(
+                                icon: Icons.add, title: 'My List'),
+                            _playButton(),
+                            const CustomButtonWidget(
+                                icon: Icons.info, title: 'Info')
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                )),
     );
   }
 }
 
-TextButton _PlayButton() {
+TextButton _playButton() {
   return TextButton.icon(
     style: ButtonStyle(backgroundColor: MaterialStateProperty.all(kWhiteColor)),
     onPressed: () {},

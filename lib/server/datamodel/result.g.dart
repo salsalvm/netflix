@@ -7,6 +7,7 @@ part of 'result.dart';
 // **************************************************************************
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
+      date: json['dates'] as String?,
       releaseDate: json['release_date'] as String?,
       id: json['id'] as int?,
       backdropPath: json['backdrop_path'] as String?,
@@ -25,4 +26,5 @@ Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
       'title': instance.title,
       'video': instance.video,
       'media_type': instance.mediaType,
+      'dates': instance.date,
     };

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
-import 'package:netflix/server/data/data.dart';
+import 'package:netflix/server/database/data.dart';
 import 'package:netflix/server/url/constant.dart';
 
 class ScreenDownloads extends StatelessWidget {
@@ -16,10 +16,6 @@ class ScreenDownloads extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) async {
-    //   final _trending = await DataBase().getTrending();
-    //   print(_trending);
-    // });
     return Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(50),
@@ -63,9 +59,6 @@ class Section2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance!.addPostFrameCallback((_) {
-
-    // });
     final Size size = MediaQuery.of(context).size;
 
     return Column(

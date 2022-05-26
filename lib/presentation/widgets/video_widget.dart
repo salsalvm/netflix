@@ -3,7 +3,9 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 
 class VideoWidget extends StatelessWidget {
-  const VideoWidget({
+  String image;
+  VideoWidget({
+    required this.image,
     Key? key,
   }) : super(key: key);
 
@@ -11,12 +13,15 @@ class VideoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-          width: double.infinity,
-          height: 200,
-          child: Image.network(
-            kHotNewImage,
-            fit: BoxFit.cover,
+        ClipRRect(borderRadius:BorderRadius.circular(10) ,
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            width: double.infinity,
+            height: 200,
+            child: Image.network(
+              image,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Positioned(

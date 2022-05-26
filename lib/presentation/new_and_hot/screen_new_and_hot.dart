@@ -59,7 +59,9 @@ class ScreenNewAndHot extends StatelessWidget {
   Widget _buildComingSoon() {
     return ListView.builder(
       shrinkWrap: true,
-      itemBuilder: ((context, index) => const ComingSoonWidget()),
+      itemBuilder: ((context, index) => ComingSoonWidget(
+            index: index,
+          )),
       itemCount: 10,
     );
   }
@@ -68,7 +70,7 @@ class ScreenNewAndHot extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
-        itemBuilder: (context, index) => const EveryonesWatchingWidget(),
+        itemBuilder: (context, index) =>  EveryonesWatchingWidget(index:index),
         itemCount: 10,
       ),
     );
