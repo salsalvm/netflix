@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
+import 'package:netflix/presentation/home/widgets/info_with_card.dart';
 import 'package:netflix/presentation/home/widgets/number_title_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
 
@@ -30,18 +31,16 @@ class ScreenHome extends StatelessWidget {
             }),
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ListView(
-                    children: const [
-                      BackgroundCard(),
-                      MainTitleCard(title: 'Released in the Past year'),
-                      MainTitleCard(title: 'Trending Now'),
-                      NumberTitleCard(),
-                      MainTitleCard(title: 'Trends Dramas'),
-                      MainTitleCard(title: 'South Indian Cinema')
-                    ],
-                  ),
+                ListView(
+                  children: const [
+                    BackgroundCard(),
+                    InfoCard(title: 'dddd'),
+                    MainTitleCard(title: 'Released in the Past year'),
+                    MainTitleCard(title: 'Trending Now'),
+                    NumberTitleCard(),
+                    MainTitleCard(title: 'Trends Dramas'),
+                    MainTitleCard(title: 'South Indian Cinema')
+                  ],
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(

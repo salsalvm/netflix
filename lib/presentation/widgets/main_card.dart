@@ -10,7 +10,7 @@ class MainCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
-      width: 130,
+      width: 140,
       height: 250,
       decoration: BoxDecoration(
         borderRadius: kradius10,

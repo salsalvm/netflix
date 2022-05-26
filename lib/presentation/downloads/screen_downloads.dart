@@ -5,6 +5,7 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 import 'package:netflix/server/data/data.dart';
+import 'package:netflix/server/url/constant.dart';
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({Key? key}) : super(key: key);
@@ -83,42 +84,44 @@ class Section2 extends StatelessWidget {
         ),
         kHeight,
         FutureBuilder(
-          future: DataBase().getTrending(),
-          builder: ((BuildContext context, AsyncSnapshot datas) => datas == null
-              ? CircularProgressIndicator()
-              : 
-              SizedBox(
+            future: DataBase().getTrending(),
+            builder: ((BuildContext context, AsyncSnapshot datas) => SizedBox(
                   width: size.width,
                   height: size.width,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.grey.withOpacity(0.5),
-                        radius: size.width * 0.4,
-                      ),
-                      DownloadsImageWidget(
-                        size: Size(size.width * 0.35, size.width * 0.55),
-                        imageList: kHotNewImage,
-                        margin: const EdgeInsets.only(left: 170, top: 50),
-                        angle: 25,
-                      ),
-                      DownloadsImageWidget(
-                        size: Size(size.width * 0.35, size.width * 0.55),
-                        imageList: kHotNewImage,
-                        margin: const EdgeInsets.only(right: 170, top: 50),
-                        angle: -25,
-                      ),
-                      DownloadsImageWidget(
-                        size: Size(size.width * 0.4, size.width * 0.63),
-                        imageList: kHotNewImage1,
-                        radius: 8,
-                        margin: const EdgeInsets.only(top: 10),
-                      ),
-                    ],
-                  ),
-                )),
-        )
+                  child: datas.data == null
+                      ? const Center(child: CircularProgressIndicator())
+                      : Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.grey.withOpacity(0.5),
+                              radius: size.width * 0.4,
+                            ),
+                            DownloadsImageWidget(
+                              size: Size(size.width * 0.35, size.width * 0.55),
+                              imageList:
+                                  '$imageAppentUrl${datas.data[2].posterPath}',
+                              margin: const EdgeInsets.only(left: 170, top: 50),
+                              angle: 25,
+                            ),
+                            DownloadsImageWidget(
+                              size: Size(size.width * 0.35, size.width * 0.55),
+                              imageList:
+                                  '$imageAppentUrl${datas.data[1].posterPath}',
+                              margin:
+                                  const EdgeInsets.only(right: 170, top: 50),
+                              angle: -25,
+                            ),
+                            DownloadsImageWidget(
+                              size: Size(size.width * 0.4, size.width * 0.63),
+                              imageList:
+                                  '$imageAppentUrl${datas.data[0].posterPath}',
+                              radius: 8,
+                              margin: const EdgeInsets.only(top: 10),
+                            ),
+                          ],
+                        ),
+                )))
       ],
     );
   }

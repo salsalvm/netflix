@@ -15,8 +15,8 @@ class MainTitleCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        kHeight,
-        MainTitle(title: title),
+        kHeight20,
+        MainTitle(title: title),kHeight5,
         LimitedBox(
             maxHeight: 200,
             child: ListView(

@@ -23,7 +23,7 @@ class SearchResultWidget extends StatelessWidget {
                 crossAxisCount: 3,
                 childAspectRatio: 1 / 1.4,
                 children: List.generate(
-                  20,
+                  20, 
                   (index) {
                     return const SearchCard();
                   },
