@@ -16,7 +16,7 @@ class EveryonesWatchingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: DataBase().getSearchResult(),
+      future: DataBase().getTrending(),
       builder: (BuildContext context, AsyncSnapshot datas) => datas.data == null
           ? const Center(child: CircularProgressIndicator())
           : Column(

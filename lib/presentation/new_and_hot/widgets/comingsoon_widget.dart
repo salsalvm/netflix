@@ -54,7 +54,7 @@ class ComingSoonWidget extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '${datas.data[index].title}',
+                            '${datas.data[index].title}'.split(' ').first,
                             maxLines: 1,
                             style: const TextStyle(
                                 overflow: TextOverflow.ellipsis,

@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/presentation/fast_laugh/widget/play_video.dart';
+import 'package:video_player/video_player.dart';
 
 class VedeoListItem extends StatelessWidget {
   final int index;
-  const VedeoListItem({Key? key, required this.index}) : super(key: key);
-
+  VedeoListItem({Key? key, required this.index}) : super(key: key);
+  var videos = [
+    'https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4',
+    'https://assets.mixkit.co/videos/preview/mixkit-watching-a-cartoon-while-having-a-snack-26208-large.mp4',
+    'https://assets.mixkit.co/videos/preview/mixkit-crowds-of-people-cross-a-street-junction-4401-large.mp4',
+    'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+  ];
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          color: Colors.accents[index % Colors.accents.length],
+        SizedBox(
+          child: Video(
+            index: index,
+            videos: videos,
+            onStateChanged: (bool) {},
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,

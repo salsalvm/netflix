@@ -55,7 +55,7 @@ Future<List<Result>> datasFrom(String title) async {
   } else if (title == 'Released in the Past year') {
     return await DataBase().getLatestMovies();
   } else if (title == 'Us Movie') {
-    return await DataBase().getSearchResult();
+    return await DataBase().getNowPlaying();
   } else {
     return [];
   }

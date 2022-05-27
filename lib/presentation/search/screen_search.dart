@@ -4,8 +4,10 @@ import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/search/widgets/search_idle.dart';
 import 'package:netflix/presentation/search/widgets/search_result.dart';
 
+final searchResult = TextEditingController();
+
 class ScreenSearch extends StatelessWidget {
- const ScreenSearch({Key? key}) : super(key: key);
+  const ScreenSearch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class ScreenSearch extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CupertinoSearchTextField(
+                controller: searchResult,
                 backgroundColor: Colors.grey.withOpacity(0.4),
                 prefixIcon: const Icon(
                   Icons.search,
@@ -27,10 +30,17 @@ class ScreenSearch extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 style: const TextStyle(color: Colors.white),
+                // onSubmitted: (value) {
+                //   Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: ((context) => const SearchResultWidget())));
+                // },
               ),
               kHeight,
-            // const  Expanded(child:  SearchIdleWidget()),
-               Expanded(child:  SearchResultWidget()),
+              searchResult.text.isEmpty
+                  ? const Expanded(child: SearchIdleWidget())
+                  : Expanded(child: SearchResultWidget()),
             ],
           ),
         ),
