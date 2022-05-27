@@ -27,7 +27,7 @@ class MainTitleCard extends StatelessWidget {
             future: datasFrom(title),
             builder: (BuildContext context, AsyncSnapshot datas) =>
                 datas.data == null
-                    ? Center(child: CircularProgressIndicator())
+                    ?const Center(child: CircularProgressIndicator())
                     : ListView(
                         reverse: true,
                         scrollDirection: Axis.horizontal,

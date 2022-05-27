@@ -3,6 +3,7 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/comingsoon_widget.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/everyones_watch_widgets.dart';
+import 'package:netflix/server/database/data.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({Key? key}) : super(key: key);
@@ -57,22 +58,32 @@ class ScreenNewAndHot extends StatelessWidget {
   }
 
   Widget _buildComingSoon() {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemBuilder: ((context, index) => ComingSoonWidget(
-            index: index,
-          )),
-      itemCount: 10,
-    );
+    return FutureBuilder(
+        future: DataBase().getUpComing(),
+        builder: (BuildContext context, AsyncSnapshot datas) =>
+            datas.data == null
+                ? const Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: ((context, index) => ComingSoonWidget(
+                          index: index,
+                          datas: datas,
+                        )),
+                    itemCount: 10,
+                  ));
   }
 
   Widget _buildEveryonesWatching() {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: ListView.builder(
-        itemBuilder: (context, index) =>  EveryonesWatchingWidget(index:index),
+      child:FutureBuilder(
+      future: DataBase().getTrending(),
+      builder: (BuildContext context, AsyncSnapshot datas) => datas.data == null
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+        itemBuilder: (context, index) => EveryonesWatchingWidget(index: index,datas:datas),
         itemCount: 10,
       ),
-    );
+     ), );
   }
 }

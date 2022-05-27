@@ -12,30 +12,34 @@ class SearchResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SearchTextTitle(title: 'Movies & Tv'),
-        kHeight,
-        Expanded(
-            child: FutureBuilder(
-                future: DataBase().getSearchResult(searchResult.text),
-                builder: (BuildContext contex, AsyncSnapshot datas) =>
-                    datas.data == null
-                        ? const Center(child: CircularProgressIndicator())
-                        : GridView.count(
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                            shrinkWrap: true,
-                            crossAxisCount: 3,
-                            childAspectRatio: 1 / 1.4,
-                            children: List.generate(
-                              10,
-                              (index) {
-                                return SearchCard(index: index, datas: datas);
-                              },
-                            ))))
-      ],
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SearchTextTitle(title: 'Movies & Tv'),
+            kHeight,
+            Expanded(
+                child: FutureBuilder(
+                    future: DataBase().getSearchResult(searchResult.text),
+                    builder: (BuildContext contex, AsyncSnapshot datas) =>
+                        datas.data == null
+                            ? const Center(child: CircularProgressIndicator())
+                            : GridView.count(
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                shrinkWrap: true,
+                                crossAxisCount: 3,
+                                childAspectRatio: 1 / 1.4,
+                                children: List.generate(
+                                  10,
+                                  (index) {
+                                    return SearchCard(index: index, datas: datas);
+                                  },
+                                ))))
+          ],
+        ),
+      ),
     );
   }
 }

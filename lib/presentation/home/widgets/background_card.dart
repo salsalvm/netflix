@@ -19,7 +19,7 @@ class BackgroundCard extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 600,
+                      height: 520,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,

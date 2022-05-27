@@ -25,7 +25,7 @@ class ScreenDownloads extends StatelessWidget {
         body: ListView.separated(
           padding: const EdgeInsets.all(10),
           separatorBuilder: (context, index) => const SizedBox(
-            height: 25,
+            height: 15,
           ),
           itemBuilder: (context, index) => _widgetLists[index],
           itemCount: _widgetLists.length,
@@ -69,13 +69,13 @@ class Section2 extends StatelessWidget {
           style: TextStyle(
               color: kWhiteColor, fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        kHeight,
+        kHeight5,
         const Text(
-          "We'll downloads a personalised selection of\nmovies and shows for you, so there's\n always something to watch on your\ndevice.",
+          "We'll downloads a personalised selection of\nmovies and shows for you, so there's\ndevice.",
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.grey, fontSize: 16),
         ),
-        kHeight,
+        kHeight5,
         FutureBuilder(
             future: DataBase().getTrending(),
             builder: ((BuildContext context, AsyncSnapshot datas) => SizedBox(
@@ -146,7 +146,7 @@ class Section3 extends StatelessWidget {
             ),
           ),
         ),
-        kHeight,
+        kHeight5,
         MaterialButton(
           color: kWhiteColor,
           onPressed: () {},

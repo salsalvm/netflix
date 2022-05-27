@@ -30,17 +30,17 @@ class ScreenSearch extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 style: const TextStyle(color: Colors.white),
-                // onSubmitted: (value) {
-                //   Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //           builder: ((context) => const SearchResultWidget())));
-                // },
+                onSubmitted: (value) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SearchResultWidget())));
+                },
               ),
               kHeight,
               searchResult.text.isEmpty
                   ? const Expanded(child: SearchIdleWidget())
-                  : Expanded(child: SearchResultWidget()),
+                  :const Expanded(child: SearchResultWidget()),
             ],
           ),
         ),

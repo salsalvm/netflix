@@ -42,7 +42,7 @@ class _VideoState extends State<Video> {
                 aspectRatio: _videoController.value.aspectRatio,
                 child: VideoPlayer(_videoController),
               )
-            : Center(child: CircularProgressIndicator()));
+            :const Center(child: CircularProgressIndicator()));
   }
 
   @override

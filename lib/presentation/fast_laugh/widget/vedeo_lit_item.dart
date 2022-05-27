@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/presentation/fast_laugh/widget/play_video.dart';
-import 'package:video_player/video_player.dart';
 
 class VedeoListItem extends StatelessWidget {
   final int index;

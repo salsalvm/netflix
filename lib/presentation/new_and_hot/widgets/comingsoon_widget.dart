@@ -7,8 +7,8 @@ import 'package:netflix/server/database/data.dart';
 import 'package:netflix/server/url/constant.dart';
 
 class ComingSoonWidget extends StatelessWidget {
-  final int index;
-  const ComingSoonWidget({
+  final int index;final AsyncSnapshot datas;
+  const ComingSoonWidget({required this.datas,
     required this.index,
     Key? key,
   }) : super(key: key);
@@ -16,11 +16,7 @@ class ComingSoonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return FutureBuilder(
-      future: DataBase().getUpComing(),
-      builder: (BuildContext context, AsyncSnapshot datas) => datas.data == null
-          ? const Center(child: CircularProgressIndicator())
-          : Row(
+    return  Row(
               children: [
                 SizedBox(
                   width: 50,
@@ -104,7 +100,6 @@ class ComingSoonWidget extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
     );
   }
 }
