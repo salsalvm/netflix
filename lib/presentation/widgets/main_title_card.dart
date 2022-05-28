@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/domain/database/data.dart';
+import 'package:netflix/domain/datamodel/result.dart';
+import 'package:netflix/domain/url/constant.dart';
 import 'package:netflix/presentation/widgets/main_card.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
-import 'package:netflix/server/database/data.dart';
-import 'package:netflix/server/datamodel/result.dart';
-import 'package:netflix/server/url/constant.dart';
+
 
 class MainTitleCard extends StatelessWidget {
   final String title;

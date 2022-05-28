@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/domain/database/data.dart';
+import 'package:netflix/domain/url/constant.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
-import 'package:netflix/server/database/data.dart';
-import 'package:netflix/server/url/constant.dart';
+
 
 class InfoCard extends StatelessWidget {
   const InfoCard({
@@ -20,7 +21,7 @@ class InfoCard extends StatelessWidget {
         const MainTitle(title: 'Continue Watching'),
         kHeight5,
         LimitedBox(
-          maxHeight: 240,
+          maxHeight: 242,
           child: FutureBuilder(
               future: DataBase().getNowPlaying(),
               builder: ((BuildContext context, AsyncSnapshot datas) =>
@@ -68,7 +69,8 @@ class InfoCard extends StatelessWidget {
                                       ),
                                     )
                                   ],
-                                ),
+                                ),Container(height: 2,width:index%2==0?  140:70,
+                                  decoration:const BoxDecoration(color: Colors.red),),
                                 Container(
                                   decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.vertical(

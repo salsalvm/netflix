@@ -3,9 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/domain/database/data.dart';
+import 'package:netflix/domain/url/constant.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
-import 'package:netflix/server/database/data.dart';
-import 'package:netflix/server/url/constant.dart';
+
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({Key? key}) : super(key: key);

@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/domain/database/data.dart';
+import 'package:netflix/domain/url/constant.dart';
 import 'package:netflix/presentation/search/widgets/title.dart';
-import 'package:netflix/server/database/data.dart';
-import 'package:netflix/server/url/constant.dart';
+
 
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({Key? key}) : super(key: key);
