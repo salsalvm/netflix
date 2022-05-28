@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/colors/colors.dart';
 
 const kWidth = SizedBox(
   width: 10,
@@ -24,7 +25,7 @@ const kMainImage =
     "https://i0.wp.com/batman-news.com/wp-content/uploads/2019/09/Joker-Official-Images-Fandango-Poster-01.jpg?quality=80&strip=info&ssl=1";
 
 TextStyle kHomeTitleText =
-    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold);
+    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: kWhiteColor);
 
 const kHotNewImage1 =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcqNw1d646e30gmcOC5qWmtFeFRSNyzmnolg&usqp=CAU";

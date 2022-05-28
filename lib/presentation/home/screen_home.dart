@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
+import 'package:netflix/presentation/home/widgets/catogary.dart';
 import 'package:netflix/presentation/home/widgets/info_with_card.dart';
 import 'package:netflix/presentation/home/widgets/number_title_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
@@ -46,7 +48,7 @@ class ScreenHome extends StatelessWidget {
                 scrollNotifier.value == true
                     ? AnimatedContainer(
                         duration: const Duration(milliseconds: 1000),
-                        height: 90,
+                        height: 108,
                         width: double.infinity,
                         color: Colors.black.withOpacity(0.3),
                         child: Column(
@@ -84,9 +86,30 @@ class ScreenHome extends StatelessWidget {
                                   "Movie",
                                   style: kHomeTitleText,
                                 ),
-                                Text(
-                                  "Catogary",
-                                  style: kHomeTitleText,
+                                Row(
+                                  children: [
+                                    LimitedBox(
+                                        child: TextButton(
+                                      onPressed: () {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return const Categories();
+                                            });
+                                      },
+                                      child: const Text(
+                                        "Catogary",
+                                        style: TextStyle(
+                                            color: kWhiteColor,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )),
+                                    const Icon(
+                                      Icons.arrow_drop_down,
+                                      color: kWhiteColor,
+                                    )
+                                  ],
                                 ),
                               ],
                             )
