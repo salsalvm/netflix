@@ -16,7 +16,7 @@ abstract class ApiCall {
 }
 
 class DataBase extends ApiCall {
-  @override
+  @override  
   Future<List<Result>> getTrending() async {
     final _result = await http.get(Uri.parse(
         "$kBaseUrl/trending/all/day?api_key=$apiKey"));
